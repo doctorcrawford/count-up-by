@@ -19,8 +19,12 @@ window.onload = function() {
     const firstNumInput = parseInt(document.getElementById("firstNumInput").value);
     const secondNumInput = parseInt(document.getElementById("secondNumInput").value);
 
-    if(isNaN(firstNumInput) || isNaN(secondNumInput)) {
+  if(isNaN(firstNumInput) || isNaN(secondNumInput)) {
       showResults('Please enter only integers');
+    } else if (firstNumInput < 0 || secondNumInput < 0) {
+      showResults('Please don\'t enter negative numbers');
+    } else if (secondNumInput > firstNumInput) {
+      showResults("please make sure the Count by number is LESS than the count to number");
     } else {
       const output = countUpBy(firstNumInput, secondNumInput);
       showResults(output);
